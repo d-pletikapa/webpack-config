@@ -1,4 +1,3 @@
-# webpack-config
 ## Installation & Configuration
 
 > 1. init **npm config**:
@@ -125,7 +124,7 @@ test: /\.(woff|woff2|eot|ttf|otf)$/i,
 type: 'asset/resource',
 },
 ```
-> 	**webpack.config.js** add in => plugins: 
+> 	 **webpack.config.js** add in => plugins: 
 ```js
 new MiniCssExtractPlugin({
 filename: '[name][contenthash].css',
@@ -160,9 +159,9 @@ npm i -D html-loader
 ```bash
 npm install -D babel-loader @babel/core @babel/preset-env
 ```
-> 	1. in **webpack.config.js**:
-> 		modules:
-> 			rules:
+> 1.  in **webpack.config.js**:
+> 	+ modules:
+> 		rules:
 ```js
 {
         test: /\.m?js$/,
@@ -175,20 +174,28 @@ npm install -D babel-loader @babel/core @babel/preset-env
         },
       },
 ```
->	in index.js and other **JS** modules:
->	2. adjust paths for avoiding conflicts:
+> 2. in index.js and other **JS** modules:
+>	+ adjust paths for avoiding conflicts:
 >		for example:
->			**from :** 
->				`import {getStorage} from './phonebook/script/serviceStorage.js'
->			**to:**
->				`import {getStorage} from './phonebook/script/serviceStorage'`
->	3. for modules rename filenames:
->		example: 
->			from:
->				`createElements.js` 
->			to: 
->				`createElements.mjs`
->	4. create file in root: **babel.config.js**
+
+**from :** 
+>			`import {getStorage} from './phonebook/script/serviceStorage.js'`
+
+**to:**
+>			`import {getStorage} from './phonebook/script/serviceStorage'`
+
+> 3. for modules from filenames:
+>	+ for example:
+
+**from :** 
+>			`createElements.js` 
+
+**to:**
+>			`createElements.mjs`
+
+> 4. create file in root: **babel.config.js**
+> 	+ inside:
+
 ```js
 module.exports = {
 
@@ -196,11 +203,16 @@ module.exports = {
 
 };
 ```
->	5. setup polyfills:
+
+> 5. setup polyfills
+> 	+ bash:
 ```bash
 npm install @babel/polyfill
 ```
->		add in webpack.config.js :
+
+> 6. in webpack.config.js
+> 	+ add:
+
 ```
 entry: [
     'core-js/stable',
